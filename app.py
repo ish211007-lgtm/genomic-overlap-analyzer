@@ -9,11 +9,27 @@ st.caption("Find which features in file A (e.g. genes) overlap features in file 
            "(e.g. SNPs). Coordinates are BED style: 0-based, half-open.")
 
 
-def load_text(uploaded, sample_path):
+SAMPLE_A = """# Example genes (BED: chrom  start  end  name)
+chr1\t1000\t5000\tGeneA
+chr1\t8000\t9000\tGeneB
+chr1\t12000\t15000\tGeneC
+chr2\t500\t2500\tGeneD
+"""
+SAMPLE_B = """# Example SNPs / other features
+chr1\t2000\t2001\tSNP1
+chr1\t7000\t7001\tSNP2
+chr1\t8500\t8501\tSNP3
+chr1\t14000\t16000\tRegionX
+chr2\t1000\t1001\tSNP4
+chr3\t100\t101\tSNP5
+"""
+
+
+def load_text(uploaded, sample_text):
+    """Use the uploaded file if there is one, otherwise the built-in sample."""
     if uploaded is not None:
         return uploaded.getvalue().decode("utf-8")
-    with open(sample_path) as f:
-        return f.read()
+    return sample_text
 
 
 with st.sidebar:
@@ -25,8 +41,8 @@ with st.sidebar:
     up_ref = st.file_uploader("Optional reference FASTA", type=["fa", "fasta", "fna"])
     st.caption("Add a FASTA to get the overlap sequence and GC content (Biopython).")
 
-text_a = load_text(up_a, "data/genes.bed")
-text_b = load_text(up_b, "data/snps.bed")
+text_a = load_text(up_a, SAMPLE_A)
+text_b = load_text(up_b, SAMPLE_B)
 features_a, errors_a = oc.parse_bed_text(text_a)
 features_b, errors_b = oc.parse_bed_text(text_b)
 
