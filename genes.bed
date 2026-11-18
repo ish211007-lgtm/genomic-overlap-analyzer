@@ -1,0 +1,5 @@
+# Example gene annotations (BED: chrom  start  end  name)
+chr1	1000	5000	GeneA
+chr1	8000	9000	GeneB
+chr1	12000	15000	GeneC
+chr2	500	2500	GeneD

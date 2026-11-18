@@ -1,0 +1,7 @@
+# Example SNPs / other features
+chr1	2000	2001	SNP1
+chr1	7000	7001	SNP2
+chr1	8500	8501	SNP3
+chr1	14000	16000	RegionX
+chr2	1000	1001	SNP4
+chr3	100	101	SNP5
