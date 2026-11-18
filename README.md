@@ -7,7 +7,7 @@ features that overlap, how many bases they share, what fraction of each feature
 that is, and how they relate (identical / inside / partial). Optionally add a
 reference FASTA to see the overlap sequence and its GC content.
 
-**Live app:** _paste your Streamlit link here_
+**Live app:** https://genomic-overlap-analyzer.streamlit.app
 
 ## Run locally
 ```
@@ -42,5 +42,5 @@ Overlap length = `min(A.end, B.end) - max(A.start, B.start)`. Features that only
 touch (A.end == B.start) do not overlap.
 
 ## Team
-- Member 1: _name – role_
-- Member 2: _name – role_
+- Member 1: Ishika Agastya – web application and development
+- Member 2: Dharani Santhoshini – core analysis engine
